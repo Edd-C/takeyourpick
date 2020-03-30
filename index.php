@@ -18,15 +18,16 @@
 </head>
 
 <body>
-	<nav class="navbar sticky-top navbar-light bg-light">
-		<div class='container'>
-			<div class="d-flex justify-content-around w-100">
-				<h1 ><span class="badge badge-info"><a href="#christine" style="text-decoration: none; color: #fff;">CK</a></span></h1>
-				<h1  ><span class="badge badge-info"><a href="#theresa" style="text-decoration: none; color: #fff;">TK</a></span></h1>
-				<h1><span class="badge badge-info"><a href="#christine" style="text-decoration: none; color: #fff;">SL</a></span></h1>
-				<h1><span class="badge badge-info"><a href="#christine" style="text-decoration: none; color: #fff;">KB</a></span></h1>
+	<nav class="navbar sticky-top navbar-light bg-light p-0">
+
+
+			<div class="btn-group w-100" role="group">
+				<button type="button" class="btn btn-info btn-lg w-100" style="height:100px; font-size:3em; font-weight: bold;"><a href="#christine" style="text-decoration: none; color:#fff;">CK</a></button>
+				<button type="button" class="btn btn-info btn-lg w-100" style="height:100px; font-size:3em; font-weight: bold;"><a href="#christine" style="text-decoration: none; color:#fff;">TK</a></button>
+				<button type="button" class="btn btn-info btn-lg w-100" style="height:100px; font-size:3em; font-weight: bold;"><a href="#christine" style="text-decoration: none; color:#fff;">SL</a></button>
+				<button type="button" class="btn btn-info btn-lg w-100" style="height:100px; font-size:3em; font-weight: bold;"><a href="#christine" style="text-decoration: none; color:#fff;">KB</a></button>
 			</div>
-		</div>
+
 	</nav>
 
 	<div class="container">
