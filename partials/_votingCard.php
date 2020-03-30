@@ -3,7 +3,7 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col pr-1 pl-0">
-					<button type="button" class="btn btn-success w-100 py-1">
+					<button type="button" class="btn btn-success w-100 py-1" onclick="test();">
 						<svg class="bi bi-check" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 							<path fill-rule="evenodd" d="M13.854 3.646a.5.5 0 010 .708l-7 7a.5.5 0 01-.708 0l-3.5-3.5a.5.5 0 11.708-.708L6.5 10.293l6.646-6.647a.5.5 0 01.708 0z" clip-rule="evenodd"/>
 						</svg>
@@ -139,8 +139,16 @@
 			</div>
 
 			<div class="row justify-content-center">
-				<h1>Total: -55</h1>
+				<h1>Total: <span id="number">55</span></h1>
 			</div>
 		</div>
 	</div>
 </div>
+
+
+<script>
+	function test() {
+		var text = $('#number').text(parseInt($('#number').text()) + 1);
+
+	}
+</script>
