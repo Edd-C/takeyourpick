@@ -147,7 +147,7 @@
 
 
 <script>
-	function UP() {
+	function test() {
 		var text = $('#number').text(parseInt($('#number').text()) + 1);
 
 	}
