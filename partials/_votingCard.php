@@ -3,7 +3,7 @@
 	<!-- Picture -->
 	<div class="pt-3" style="margin:0 -15px 0 -15px; position: relative;">
 		<p class="display-4 font-weight-bold" style="color: white; position: absolute; top: 20px; left: 20px; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;"> <?= $fileName; ?></p>
-		<img src="images/<?= $fileName; ?>.jpg" class="img-fluid" alt="Responsive image">
+		<img src="images/<?= $fileName; ?>.jpg" style="width: 100%;" >
 	</div>
 
 
