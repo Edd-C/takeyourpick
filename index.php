@@ -18,65 +18,77 @@
 </head>
 
 <body>
+
+ 	<!-- Sticky top nav -->
 	<nav class="navbar sticky-top navbar-light bg-light p-0">
-
-
-			<div class="btn-group w-100" role="group">
-				<button type="button" class="btn btn-info btn-lg w-100" style="height:130px;"><a href="#CK" class="display-3 font-weight-bold" style="text-decoration: none; color:#fff;">CK</a></button>
-				<button type="button" class="btn btn-info btn-lg w-100" style="height:130px;"><a href="#TK" class="display-3 font-weight-bold" style="text-decoration: none; color:#fff;">TK</a></button>
-				<button type="button" class="btn btn-info btn-lg w-100" style="height:130px;"><a href="#SL" class="display-3 font-weight-bold" style="text-decoration: none; color:#fff;">SL</a></button>
-				<button type="button" class="btn btn-info btn-lg w-100" style="height:130px;"><a href="#KB" class="display-3 font-weight-bold" style="text-decoration: none; color:#fff;">KB</a></button>
-			</div>
-
+		<div class="btn-group w-100" role="group">
+			<button type="button" class="btn btn-info btn-lg w-100" style="height:130px;"><a href="#CK" class="display-3 font-weight-bold" style="text-decoration: none; color:#fff;">CK</a></button>
+			<button type="button" class="btn btn-info btn-lg w-100" style="height:130px;"><a href="#TK" class="display-3 font-weight-bold" style="text-decoration: none; color:#fff;">TK</a></button>
+			<button type="button" class="btn btn-info btn-lg w-100" style="height:130px;"><a href="#SL" class="display-3 font-weight-bold" style="text-decoration: none; color:#fff;">SL</a></button>
+			<button type="button" class="btn btn-info btn-lg w-100" style="height:130px;"><a href="#KB" class="display-3 font-weight-bold" style="text-decoration: none; color:#fff;">KB</a></button>
+		</div>
 	</nav>
 
+	<?php
+
+
+
+
+	$people = array(
+		'CK' => array(),
+		'TK' => array(),
+		'SL' => array(),
+		'KB' => array(),
+	);
+
+	foreach($people as $personInitial => $person) {
+		$people[$personInitial]['photos'] = array();
+
+		for($i = 1; $i <= 5; $i++ ) {
+			$people[$personInitial]['photos'][$personInitial.$i] = array(
+				'voteDetails' => array(
+					'CK' => array(
+						'up' => 1,
+						'down' => 2
+					),
+					'TK' => array(
+						'up' => 3,
+						'down' => 4
+					),
+					'SL' => array(
+						'up' => 5,
+						'down' => 6
+					),
+					'KB' => array(
+						'up' => 7,
+						'down' => 8
+					),
+				)
+			);
+		}
+
+
+	}
+
+	?>
+
+	<!-- Main area -->
 	<div class="container-fluid p-0">
-		<div class='row' style="padding-top:130px;">
-			<a name="CK"></a>
-			<div class="container-fluid" style="margin-top:130px;">
-				<?php include_partial('partials/_votingCard.php', array('test' => 'testing')); ?>
-				Voting test <br>
-				Voting test <br>
-				Voting test <br>
-				Voting test <br>
-				Voting test <br>
-				Voting test <br>
-				Voting test <br>
-				Voting test <br>
-				Voting test <br>
-				Voting test <br>
-				Voting test <br>
-				Voting test <br>
-				Voting test <br>
-				Voting test <br>
-				Voting test <br>
-				Voting test <br>
-			</div>
 
-		</div>
+		<!-- Persons section -->
+		<?php foreach($people as $personInitial => $person) { ?>
+			<div class='row' style="padding-top:130px;">
+				<a name="<?= $personInitial; ?>"></a>
 
-		<div class='row'>
-			<a name="TK"></a>
-			<div class="container" style="margin-top:130px;">
-				<h1>Theresa</h1>
-				Voting test <br>
-				Voting test <br>
-				Voting test <br>
-				Voting test <br>
-				Voting test <br>
-				Voting test <br>
-				Voting test <br>
-				Voting test <br>
-				Voting test <br>
-				Voting test <br>
-				Voting test <br>
-				Voting test <br>
-				Voting test <br>
-				Voting test <br>
-				Voting test <br>
-				Voting test <br>
+				<!-- Each photo - for current person -->
+				<?php foreach($person['photos'] as $fileName => $photo) { ?>
+					<div class="container-fluid" style="margin-top:130px;">
+						<?php include_partial('partials/_votingCard.php', array('fileName' => $fileName, 'voteDetails' => $photo['voteDetails'])); ?>
+					</div>
+				<?php } ?>
+
 			</div>
-		</div>
+		<?php } ?>
 	</div>
 
 </body>
