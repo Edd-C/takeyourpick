@@ -73,7 +73,7 @@
 	?>
 
 	<!-- Main area -->
-	<div class="container-fluid p-0">
+	<div class="container-fluid">
 
 		<!-- Persons section -->
 		<?php foreach($people as $personInitial => $person) { ?>
