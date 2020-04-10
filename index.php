@@ -30,8 +30,8 @@
 
 	</nav>
 
-	<div class="container">
-		<div class='row' style="max-width:600px;">
+	<div class="container-fluid p-0">
+		<div class='row' style="">
 			<a name="christine"></a>
 			<div class="container-fluid" style="margin-top:70px;">
 				<h1>Christine</h1>
