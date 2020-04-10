@@ -22,20 +22,18 @@
 
 
 			<div class="btn-group w-100" role="group">
-				<button type="button" class="btn btn-info btn-lg w-100" style="height:100px; font-size:3em; font-weight: bold;"><a href="#christine" style="text-decoration: none; color:#fff;">CK</a></button>
-				<button type="button" class="btn btn-info btn-lg w-100" style="height:100px; font-size:3em; font-weight: bold;"><a href="#christine" style="text-decoration: none; color:#fff;">TK</a></button>
-				<button type="button" class="btn btn-info btn-lg w-100" style="height:100px; font-size:3em; font-weight: bold;"><a href="#christine" style="text-decoration: none; color:#fff;">SL</a></button>
-				<button type="button" class="btn btn-info btn-lg w-100" style="height:100px; font-size:3em; font-weight: bold;"><a href="#christine" style="text-decoration: none; color:#fff;">KB</a></button>
+				<button type="button" class="btn btn-info btn-lg w-100" style="height:130px;"><a href="#CK" class="display-3 font-weight-bold" style="text-decoration: none; color:#fff;">CK</a></button>
+				<button type="button" class="btn btn-info btn-lg w-100" style="height:130px;"><a href="#TK" class="display-3 font-weight-bold" style="text-decoration: none; color:#fff;">TK</a></button>
+				<button type="button" class="btn btn-info btn-lg w-100" style="height:130px;"><a href="#SL" class="display-3 font-weight-bold" style="text-decoration: none; color:#fff;">SL</a></button>
+				<button type="button" class="btn btn-info btn-lg w-100" style="height:130px;"><a href="#KB" class="display-3 font-weight-bold" style="text-decoration: none; color:#fff;">KB</a></button>
 			</div>
 
 	</nav>
 
 	<div class="container-fluid p-0">
-		<div class='row' style="">
-			<a name="christine"></a>
-			<div class="container-fluid" style="margin-top:70px;">
-				<h1>Christine</h1>
-
+		<div class='row' style="padding-top:130px;">
+			<a name="CK"></a>
+			<div class="container-fluid" style="margin-top:130px;">
 				<?php include_partial('partials/_votingCard.php', array('test' => 'testing')); ?>
 				Voting test <br>
 				Voting test <br>
@@ -58,8 +56,8 @@
 		</div>
 
 		<div class='row'>
-			<a name="theresa"></a>
-			<div class="container" style="margin-top:70px;">
+			<a name="TK"></a>
+			<div class="container" style="margin-top:130px;">
 				<h1>Theresa</h1>
 				Voting test <br>
 				Voting test <br>
