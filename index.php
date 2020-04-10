@@ -48,20 +48,20 @@
 			$people[$personInitial]['photos'][$personInitial.$i] = array(
 				'voteDetails' => array(
 					'CK' => array(
-						'up' => 1,
-						'down' => 2
+						'up' => 0,
+						'down' => 0
 					),
 					'TK' => array(
-						'up' => 3,
-						'down' => 4
+						'up' => 0,
+						'down' => 0
 					),
 					'SL' => array(
-						'up' => 5,
-						'down' => 6
+						'up' => 0,
+						'down' => 0
 					),
 					'KB' => array(
-						'up' => 7,
-						'down' => 8
+						'up' => 0,
+						'down' => 0
 					),
 				)
 			);
@@ -82,7 +82,7 @@
 
 				<!-- Each photo - for current person -->
 				<?php foreach($person['photos'] as $fileName => $photo) { ?>
-					<div class="container-fluid" style="margin-top:130px;">
+					<div class="container-fluid" style="margin-top:200px;">
 						<?php include_partial('partials/_votingCard.php', array('fileName' => $fileName, 'voteDetails' => $photo['voteDetails'])); ?>
 					</div>
 				<?php } ?>

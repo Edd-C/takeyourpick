@@ -18,12 +18,12 @@
 
 		<table style="font-size: 2.5em; color: white; position: absolute; bottom: 10px; left: 20px; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black; margin:0px;">
 			<tr>
-				<td>Rank: </td>
+				<td styl>Rank: </td>
 				<td>1st</td>
 			</tr>
 			<tr>
-				<td>Net total: &nbsp; &nbsp;</td>
-				<td>2</td>
+				<td>Net total: &nbsp;</td>
+				<td><span id="netTotal_<?= $fileName; ?>">0</span></td>
 			</tr>
 		</table>
 	</div>
@@ -44,13 +44,13 @@
 					<tbody>
 					<tr>
 						<td class="text-center bg-white text-dark font-weight-bold" style="font-size:1.5em;">
-							<p class="m-0 p-0"><?= $votes['up']; ?></p>
+							<p class="m-0 p-0" id="upVoteDetails_<?= $fileName; ?>"><?= $votes['up']; ?></p>
 							<svg class="bi bi-chevron-up" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 							  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 01.708 0l6 6a.5.5 0 01-.708.708L8 5.707l-5.646 5.647a.5.5 0 01-.708-.708l6-6z" clip-rule="evenodd"/>
 							</svg>
 						</td>
 						<td class="text-center bg-white text-dark font-weight-bold" style="font-size:1.5em;">
-							<p class="m-0 p-0"><?= $votes['down']; ?></p>
+							<p class="m-0 p-0" id="downVoteDetails_<?= $fileName; ?>"><?= $votes['down']; ?></p>
 							<svg class="bi bi-chevron-down" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 							  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clip-rule="evenodd"/>
 							</svg>
@@ -67,7 +67,7 @@
 
 	<!-- Voting Buttons -->
 	<div class="row mb-3">
-		<button type="button" class="btn btn-success w-100 py-4" onclick="test();">
+		<button type="button" class="btn btn-success w-100 py-4" onclick="upVote_<?= $fileName; ?>();">
 			<svg class="bi bi-check" width="4em" height="4em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 				<path fill-rule="evenodd" d="M13.854 3.646a.5.5 0 010 .708l-7 7a.5.5 0 01-.708 0l-3.5-3.5a.5.5 0 11.708-.708L6.5 10.293l6.646-6.647a.5.5 0 01.708 0z" clip-rule="evenodd"/>
 			</svg>
@@ -75,7 +75,7 @@
 	</div>
 
 	<div class="row">
-		<button type="button" class="btn btn-danger w-100 py-4">
+		<button type="button" class="btn btn-danger w-100 py-4" onclick="downVote_<?= $fileName; ?>();">
 			<svg class="bi bi-x" width="4em" height="4em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 				<path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 010 .708l-7 7a.5.5 0 01-.708-.708l7-7a.5.5 0 01.708 0z" clip-rule="evenodd"/>
 				<path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 000 .708l7 7a.5.5 0 00.708-.708l-7-7a.5.5 0 00-.708 0z" clip-rule="evenodd"/>
@@ -96,12 +96,20 @@
 
 
 
-
-
-
-
 <script>
-	function test() {
-		var text = $('#number').text(parseInt($('#number').text()) + 1);
+	function upVote_<?= $fileName; ?>() {
+		// Increment net total
+		$('#netTotal_<?= $fileName; ?>').text(parseInt($('#netTotal_<?= $fileName; ?>').text()) + 1);
+
+		// Increment up vote
+		$('#upVoteDetails_<?= $fileName; ?>').text(parseInt($('#upVoteDetails_<?= $fileName; ?>').text()) + 1);
+	}
+
+	function downVote_<?= $fileName; ?>() {
+		// Increment net total
+		$('#netTotal_<?= $fileName; ?>').text(parseInt($('#netTotal_<?= $fileName; ?>').text()) - 1);
+
+		// Increment down vote
+		$('#downVoteDetails_<?= $fileName; ?>').text(parseInt($('#downVoteDetails_<?= $fileName; ?>').text()) + 1);
 	}
 </script>
