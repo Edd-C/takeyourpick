@@ -1,9 +1,31 @@
 <div class="container-fluid">
 
 	<!-- Picture -->
-	<div class="pt-3" style="margin:0 -15px 0 -15px; position: relative;">
-		<p class="display-4 font-weight-bold" style="color: white; position: absolute; top: 20px; left: 20px; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;"> <?= $fileName; ?></p>
+	<div class="" style="margin:0 -15px 0 -15px; position: relative;">
+		<!-- Pic title -->
+		<p class="display-4 font-weight-bold" style="color: white; position: absolute; top: 10px; left: 20px; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;"> <?= $fileName; ?></p>
+
+		<!-- Pic -->
 		<img src="images/<?= $fileName; ?>.jpg" style="width: 100%;" >
+
+		<!-- Pic total -->
+		<!--<p class="font-weight-bold" style="font-size: 2.5em; color: white; position: absolute; bottom: 10px; left: 20px; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black; margin:0px;">
+			Net total: <span>0 </span></p>-->
+
+		<!-- Pic total -->
+		<!--<p class="font-weight-bold" style="font-size: 2.5em; color: white; position: absolute; bottom: 40px; left: 20px; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black; margin:0px;">
+			Rank: <span>1st</span></p>-->
+
+		<table style="font-size: 2.5em; color: white; position: absolute; bottom: 40px; left: 20px; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black; margin:0px;">
+			<tr>
+				<td>Rank: </td>
+				<td>1st</td>
+			</tr>
+			<tr>
+				<td>Net total: &nbsp; &nbsp;</td>
+				<td>2</td>
+			</tr>
+		</table>
 	</div>
 
 
@@ -64,12 +86,12 @@
 
 
 	<!-- Total count -->
-	<div class="row">
+	<!--<div class="row">
 		<div class="d-flex justify-content-between w-100">
 			<h1 class=""><span class="">Total: </span><span class="" id="number">55</span></h1>
 			<p class="mt-1" style="font-style: italic;"> Total = (all up votes - all down votes)</p>
 		</div>
-	</div>
+	</div>-->
 </div>
 
 
