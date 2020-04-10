@@ -16,7 +16,7 @@
 		<!--<p class="font-weight-bold" style="font-size: 2.5em; color: white; position: absolute; bottom: 40px; left: 20px; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black; margin:0px;">
 			Rank: <span>1st</span></p>-->
 
-		<table style="font-size: 2.5em; color: white; position: absolute; bottom: 40px; left: 20px; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black; margin:0px;">
+		<table style="font-size: 2.5em; color: white; position: absolute; bottom: 10px; left: 20px; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black; margin:0px;">
 			<tr>
 				<td>Rank: </td>
 				<td>1st</td>
