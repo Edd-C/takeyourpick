@@ -105,7 +105,7 @@
 		// Increment up vote
 		$('#upVoteDetails_' + fileName + '_' + '<?= $user["id"]; ?>').text(parseInt($('#upVoteDetails_' + fileName + '_' + '<?= $user["id"]; ?>').text()) + 1);
 
-		submitVoteToDB(fileName, 'up');
+		//submitVoteToDB(fileName, 'up');
 
 		<?php } else { ?>
 			alert('You must be logged into vote. Use the link in the email you received, it has an embeded userId.');
@@ -121,7 +121,7 @@
 		// Increment down vote
 		$('#downVoteDetails_' + fileName + '_' + '<?= $user["id"]; ?>').text(parseInt($('#downVoteDetails_' + fileName + '_' + '<?= $user["id"]; ?>').text()) + 1);
 
-		submitVoteToDB(fileName, 'down');
+		//submitVoteToDB(fileName, 'down');
 		<?php } else { ?>
 			alert('You must be logged into vote. Use the link in the email you received, it has an embeded userId.');
 		<?php } ?>
