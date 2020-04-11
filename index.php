@@ -99,11 +99,11 @@
 
 	function upVote(fileName, versionNumber) {
 		<?php if($user) { ?>
-			// Increment net total
-			$('#netTotal_' + fileName).text(parseInt($('#netTotal_' + fileName).text()) + 1);
+		// Increment net total
+		//$('#netTotal_' + fileName).text(parseInt($('#netTotal_' + fileName).text()) + 1);
 
-			// Increment up vote
-			$('#upVoteDetails_<?= $user["id"]; ?>' + versionNumber).text(parseInt($('#upVoteDetails_<?= $user["id"]; ?>' + versionNumber).text()) + 1);
+		// Increment up vote
+		$('#upVoteDetails_' + fileName + '_' + '<?= $user["id"]; ?>').text(parseInt($('#upVoteDetails_' + fileName + '_' + '<?= $user["id"]; ?>').text()) + 1);
 
 		submitVoteToDB(fileName, 'up');
 
@@ -114,12 +114,12 @@
 	}
 
 	function downVote(fileName, versionNumber) {
-			<?php if($user) { ?>
-			// Increment net total
-			$('#netTotal_' + fileName).text(parseInt($('#netTotal_' + fileName).text()) - 1);
+		<?php if($user) { ?>
+		// Increment net total
+		//$('#netTotal_' + fileName).text(parseInt($('#netTotal_' + fileName).text()) - 1);
 
-			// Increment down vote
-			$('#downVoteDetails_<?= $user["id"]; ?>' + versionNumber).text(parseInt($('#downVoteDetails_<?= $user["id"]; ?>' + versionNumber).text()) + 1);
+		// Increment down vote
+		$('#downVoteDetails_' + fileName + '_' + '<?= $user["id"]; ?>').text(parseInt($('#downVoteDetails_' + fileName + '_' + '<?= $user["id"]; ?>').text()) + 1);
 
 		submitVoteToDB(fileName, 'down');
 		<?php } else { ?>
@@ -129,16 +129,54 @@
 
 	function submitVoteToDB(fileName, vote) {
 		$.post({
-			url: "ajax/_vote.php",
+			url: "ajax/vote.php",
 			data: {
 				userId: '<?= $user["id"]; ?>',
 				fileName: fileName,
 				vote: vote
 			}
 		}).done(function() {
-			//$( this ).addClass( "done" );
+			updateVotes(fileName);
 		});
 	}
+
+	function updateVotes(fileName) {
+		console.log('Called: updateVotes');
+
+		$.post({
+			url: "ajax/getAllVotes.php",
+		}).done(function(data) {
+			pictures = JSON.parse(data);
+
+			// Loop through each picture
+			for(var i = 0; i < pictures.length; i++) {
+
+				// Loop through each up/down vote counter
+				var fields = ['CK', 'TK', 'SL', 'KB'];
+				//var fields = ['CK'];
+
+				for(var j = 0; j < fields.length; j++) {
+					//console.log('Filename/picture_name: ' + fileName + ' - ' + pictures[i].picture_name);
+					//console.log('USER/FIELD: ' + fields[j] + ' - ' + '<?= $user["id"]; ?>');
+
+					if(fileName == pictures[i].picture_name && fields[j] == '<?= $user["id"]; ?>') {
+						console.log('CONTINUE');
+						continue;
+					}
+						console.log('DO IT');
+						$('#upVoteDetails_' + pictures[i].picture_name + '_' + fields[j]).text(parseInt(pictures[i][fields[j]+'_UP']));
+						$('#downVoteDetails_' + pictures[i].picture_name + '_' + fields[j]).text(parseInt(pictures[i][fields[j]+'_DOWN']));
+
+				}
+			}
+
+		});
+	}
+
+	$( document ).ready(function() {
+		updateVotes('');
+	});
+
 </script>
 
 </body>

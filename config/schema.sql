@@ -6,38 +6,39 @@ CREATE TABLE `pictures`
 (
 	`id` INTEGER NOT NULL AUTO_INCREMENT,
 	`picture_name` VARCHAR(5),
-    `ck_up` INTEGER DEFAULT 0,
-    `ck_down` INTEGER DEFAULT 0,
-    `tk_up` INTEGER DEFAULT 0,
-    `tk_down` INTEGER DEFAULT 0,
-    `sl_up` INTEGER DEFAULT 0,
-    `sl_down` INTEGER DEFAULT 0,
-    `kb_up` INTEGER DEFAULT 0,
-    `kb_down` INTEGER DEFAULT 0,
+	`version` INTEGER DEFAULT 0,
+    `CK_UP` INTEGER DEFAULT 0,
+    `CK_DOWN` INTEGER DEFAULT 0,
+    `TK_UP` INTEGER DEFAULT 0,
+    `TK_DOWN` INTEGER DEFAULT 0,
+    `SL_UP` INTEGER DEFAULT 0,
+    `SL_DOWN` INTEGER DEFAULT 0,
+    `KB_UP` INTEGER DEFAULT 0,
+    `KB_DOWN` INTEGER DEFAULT 0,
     PRIMARY KEY (`id`),
 	INDEX `picture_name_FI_1` (`picture_name`)
 ) ENGINE=InnoDB;
 
-INSERT INTO `pictures` (picture_name, ck_up, ck_down, tk_up, tk_down, sl_up, sl_down, kb_up, kb_down) values ('CK1', 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `pictures` (picture_name, ck_up, ck_down, tk_up, tk_down, sl_up, sl_down, kb_up, kb_down) values ('CK2', 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `pictures` (picture_name, ck_up, ck_down, tk_up, tk_down, sl_up, sl_down, kb_up, kb_down) values ('CK3', 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `pictures` (picture_name, ck_up, ck_down, tk_up, tk_down, sl_up, sl_down, kb_up, kb_down) values ('CK4', 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `pictures` (picture_name, ck_up, ck_down, tk_up, tk_down, sl_up, sl_down, kb_up, kb_down) values ('CK5', 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `pictures` (picture_name, version, CK_UP, CK_DOWN, TK_UP, TK_DOWN, SL_UP, SL_DOWN, KB_UP, KB_DOWN) values ('CK1', 1, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `pictures` (picture_name, version, CK_UP, CK_DOWN, TK_UP, TK_DOWN, SL_UP, SL_DOWN, KB_UP, KB_DOWN) values ('CK2', 2, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `pictures` (picture_name, version, CK_UP, CK_DOWN, TK_UP, TK_DOWN, SL_UP, SL_DOWN, KB_UP, KB_DOWN) values ('CK3', 3, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `pictures` (picture_name, version, CK_UP, CK_DOWN, TK_UP, TK_DOWN, SL_UP, SL_DOWN, KB_UP, KB_DOWN) values ('CK4', 4, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `pictures` (picture_name, version, CK_UP, CK_DOWN, TK_UP, TK_DOWN, SL_UP, SL_DOWN, KB_UP, KB_DOWN) values ('CK5', 5, 0, 0, 0, 0, 0, 0, 0, 0);
 
-INSERT INTO `pictures` (picture_name, ck_up, ck_down, tk_up, tk_down, sl_up, sl_down, kb_up, kb_down) values ('TK1', 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `pictures` (picture_name, ck_up, ck_down, tk_up, tk_down, sl_up, sl_down, kb_up, kb_down) values ('TK2', 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `pictures` (picture_name, ck_up, ck_down, tk_up, tk_down, sl_up, sl_down, kb_up, kb_down) values ('TK3', 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `pictures` (picture_name, ck_up, ck_down, tk_up, tk_down, sl_up, sl_down, kb_up, kb_down) values ('TK4', 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `pictures` (picture_name, ck_up, ck_down, tk_up, tk_down, sl_up, sl_down, kb_up, kb_down) values ('TK5', 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `pictures` (picture_name, version, CK_UP, CK_DOWN, TK_UP, TK_DOWN, SL_UP, SL_DOWN, KB_UP, KB_DOWN) values ('TK1', 1, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `pictures` (picture_name, version, CK_UP, CK_DOWN, TK_UP, TK_DOWN, SL_UP, SL_DOWN, KB_UP, KB_DOWN) values ('TK2', 2, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `pictures` (picture_name, version, CK_UP, CK_DOWN, TK_UP, TK_DOWN, SL_UP, SL_DOWN, KB_UP, KB_DOWN) values ('TK3', 3, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `pictures` (picture_name, version, CK_UP, CK_DOWN, TK_UP, TK_DOWN, SL_UP, SL_DOWN, KB_UP, KB_DOWN) values ('TK4', 4, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `pictures` (picture_name, version, CK_UP, CK_DOWN, TK_UP, TK_DOWN, SL_UP, SL_DOWN, KB_UP, KB_DOWN) values ('TK5', 5, 0, 0, 0, 0, 0, 0, 0, 0);
 
-INSERT INTO `pictures` (picture_name, ck_up, ck_down, tk_up, tk_down, sl_up, sl_down, kb_up, kb_down) values ('SL1', 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `pictures` (picture_name, ck_up, ck_down, tk_up, tk_down, sl_up, sl_down, kb_up, kb_down) values ('SL2', 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `pictures` (picture_name, ck_up, ck_down, tk_up, tk_down, sl_up, sl_down, kb_up, kb_down) values ('SL3', 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `pictures` (picture_name, ck_up, ck_down, tk_up, tk_down, sl_up, sl_down, kb_up, kb_down) values ('SL4', 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `pictures` (picture_name, ck_up, ck_down, tk_up, tk_down, sl_up, sl_down, kb_up, kb_down) values ('SL5', 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `pictures` (picture_name, version, CK_UP, CK_DOWN, TK_UP, TK_DOWN, SL_UP, SL_DOWN, KB_UP, KB_DOWN) values ('SL1', 1, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `pictures` (picture_name, version, CK_UP, CK_DOWN, TK_UP, TK_DOWN, SL_UP, SL_DOWN, KB_UP, KB_DOWN) values ('SL2', 2, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `pictures` (picture_name, version, CK_UP, CK_DOWN, TK_UP, TK_DOWN, SL_UP, SL_DOWN, KB_UP, KB_DOWN) values ('SL3', 3, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `pictures` (picture_name, version, CK_UP, CK_DOWN, TK_UP, TK_DOWN, SL_UP, SL_DOWN, KB_UP, KB_DOWN) values ('SL4', 4, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `pictures` (picture_name, version, CK_UP, CK_DOWN, TK_UP, TK_DOWN, SL_UP, SL_DOWN, KB_UP, KB_DOWN) values ('SL5', 5, 0, 0, 0, 0, 0, 0, 0, 0);
 
-INSERT INTO `pictures` (picture_name, ck_up, ck_down, tk_up, tk_down, sl_up, sl_down, kb_up, kb_down) values ('KB1', 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `pictures` (picture_name, ck_up, ck_down, tk_up, tk_down, sl_up, sl_down, kb_up, kb_down) values ('KB2', 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `pictures` (picture_name, ck_up, ck_down, tk_up, tk_down, sl_up, sl_down, kb_up, kb_down) values ('KB3', 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `pictures` (picture_name, ck_up, ck_down, tk_up, tk_down, sl_up, sl_down, kb_up, kb_down) values ('KB4', 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `pictures` (picture_name, ck_up, ck_down, tk_up, tk_down, sl_up, sl_down, kb_up, kb_down) values ('KB5', 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `pictures` (picture_name, version, CK_UP, CK_DOWN, TK_UP, TK_DOWN, SL_UP, SL_DOWN, KB_UP, KB_DOWN) values ('KB1', 1, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `pictures` (picture_name, version, CK_UP, CK_DOWN, TK_UP, TK_DOWN, SL_UP, SL_DOWN, KB_UP, KB_DOWN) values ('KB2', 2, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `pictures` (picture_name, version, CK_UP, CK_DOWN, TK_UP, TK_DOWN, SL_UP, SL_DOWN, KB_UP, KB_DOWN) values ('KB3', 3, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `pictures` (picture_name, version, CK_UP, CK_DOWN, TK_UP, TK_DOWN, SL_UP, SL_DOWN, KB_UP, KB_DOWN) values ('KB4', 4, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `pictures` (picture_name, version, CK_UP, CK_DOWN, TK_UP, TK_DOWN, SL_UP, SL_DOWN, KB_UP, KB_DOWN) values ('KB5', 5, 0, 0, 0, 0, 0, 0, 0, 0);

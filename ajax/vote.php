@@ -2,13 +2,13 @@
 include_once("../config/config.php");
 
 // Can't use parameterized query with for setting field name. So sanitize here.
-$userId = strtolower($_POST['userId']);
-if(!in_array($userId, array('ck', 'tk', 'sl', 'kb'))) {
+$userId = strtoupper($_POST['userId']);
+if(!in_array($userId, array('CK', 'TK', 'SL', 'KB'))) {
 	die();
 }
 
-$vote = strtolower($_POST['vote']);
-if(!in_array($vote, array('up', 'down'))) {
+$vote = strtoupper($_POST['vote']);
+if(!in_array($vote, array('UP', 'DOWN'))) {
 	die();
 }
 
