@@ -103,7 +103,9 @@
 		//$('#netTotal_' + fileName).text(parseInt($('#netTotal_' + fileName).text()) + 1);
 
 		// Increment up vote
-		$('#upVoteDetails_' + fileName + '_' + '<?= $user["id"]; ?>').text(parseInt($('#upVoteDetails_' + fileName + '_' + '<?= $user["id"]; ?>').text()) + 1);
+		$('#upVoteDetails_CK1_CK').text(parseInt($('#upVoteDetails_CK1_CK').text()) + 1);
+
+		//$('#upVoteDetails_' + fileName + '_' + '<?= $user["id"]; ?>').text(parseInt($('#upVoteDetails_' + fileName + '_' + '<?= $user["id"]; ?>').text()) + 1);
 
 		//submitVoteToDB(fileName, 'up');
 
