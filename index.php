@@ -12,7 +12,7 @@
 	<meta name="description" content="Vote on Edds contact photos">
 	<meta name="author" content="Edd Clarke">
 
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
@@ -95,20 +95,49 @@
 	</div>
 
 <script>
-	function upVote(fileName, versionNumber) {
-		// Increment net total
-		$('#netTotal_' + fileName).text(parseInt($('#netTotal_' + fileName).text()) + 1);
 
-		// Increment up vote
-		$('#upVoteDetails_<?= $user["id"]; ?>' + versionNumber).text(parseInt($('#upVoteDetails_<?= $user["id"]; ?>' + versionNumber).text()) + 1);
+
+	function upVote(fileName, versionNumber) {
+		<?php if($user) { ?>
+			// Increment net total
+			$('#netTotal_' + fileName).text(parseInt($('#netTotal_' + fileName).text()) + 1);
+
+			// Increment up vote
+			$('#upVoteDetails_<?= $user["id"]; ?>' + versionNumber).text(parseInt($('#upVoteDetails_<?= $user["id"]; ?>' + versionNumber).text()) + 1);
+
+		submitVoteToDB(fileName, 'up');
+
+		<?php } else { ?>
+			alert('You must be logged into vote. Use the link in the email you received, it has an embeded userId.');
+		<?php } ?>
+
 	}
 
 	function downVote(fileName, versionNumber) {
-		// Increment net total
-		$('#netTotal_' + fileName).text(parseInt($('#netTotal_' + fileName).text()) - 1);
+			<?php if($user) { ?>
+			// Increment net total
+			$('#netTotal_' + fileName).text(parseInt($('#netTotal_' + fileName).text()) - 1);
 
-		// Increment down vote
-		$('#downVoteDetails_<?= $user["id"]; ?>' + versionNumber).text(parseInt($('#downVoteDetails_<?= $user["id"]; ?>' + versionNumber).text()) + 1);
+			// Increment down vote
+			$('#downVoteDetails_<?= $user["id"]; ?>' + versionNumber).text(parseInt($('#downVoteDetails_<?= $user["id"]; ?>' + versionNumber).text()) + 1);
+
+		submitVoteToDB(fileName, 'down');
+		<?php } else { ?>
+			alert('You must be logged into vote. Use the link in the email you received, it has an embeded userId.');
+		<?php } ?>
+	}
+
+	function submitVoteToDB(fileName, vote) {
+		$.post({
+			url: "ajax/_vote.php",
+			data: {
+				userId: '<?= $user["id"]; ?>',
+				fileName: fileName,
+				vote: vote
+			}
+		}).done(function() {
+			//$( this ).addClass( "done" );
+		});
 	}
 </script>
 
