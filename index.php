@@ -80,11 +80,16 @@
 
 		<!-- Persons section -->
 		<?php foreach($people as $personInitial => $person) { ?>
+			<?php if($personInitial != 'CK') {
+				continue;
+			} ?>
+
 			<div class='row' style="padding-top:130px;">
 				<a name="<?= $personInitial; ?>"></a>
 
 				<!-- Each photo - for current person -->
 				<?php foreach($person['photos'] as $fileName => $photo) { ?>
+					<?php if($fileName != 'CK1') {continue;} ?>
 					<div class="container-fluid" style="margin-top:200px;">
 						<?php include_partial('partials/_votingCard.php', array('fileName' => $fileName, 'versionNumber' => $photo['versionNumber'], 'voteDetails' => $photo['voteDetails'])); ?>
 					</div>
