@@ -1,4 +1,6 @@
+<?php include('config/config.php'); ?>
 <?php include('frameworkCode.php'); ?>
+
 
 <!doctype html>
 
@@ -46,6 +48,7 @@
 
 		for($i = 1; $i <= 5; $i++ ) {
 			$people[$personInitial]['photos'][$personInitial.$i] = array(
+				'versionNumber' => $i,
 				'voteDetails' => array(
 					'CK' => array(
 						'up' => 0,
@@ -83,13 +86,31 @@
 				<!-- Each photo - for current person -->
 				<?php foreach($person['photos'] as $fileName => $photo) { ?>
 					<div class="container-fluid" style="margin-top:200px;">
-						<?php include_partial('partials/_votingCard.php', array('fileName' => $fileName, 'voteDetails' => $photo['voteDetails'])); ?>
+						<?php include_partial('partials/_votingCard.php', array('fileName' => $fileName, 'versionNumber' => $photo['versionNumber'], 'voteDetails' => $photo['voteDetails'])); ?>
 					</div>
 				<?php } ?>
 
 			</div>
 		<?php } ?>
 	</div>
+
+<script>
+	function upVote(fileName, versionNumber) {
+		// Increment net total
+		$('#netTotal_' + fileName).text(parseInt($('#netTotal_' + fileName).text()) + 1);
+
+		// Increment up vote
+		$('#upVoteDetails_<?= $user["id"]; ?>' + versionNumber).text(parseInt($('#upVoteDetails_<?= $user["id"]; ?>' + versionNumber).text()) + 1);
+	}
+
+	function downVote(fileName, versionNumber) {
+		// Increment net total
+		$('#netTotal_' + fileName).text(parseInt($('#netTotal_' + fileName).text()) - 1);
+
+		// Increment down vote
+		$('#downVoteDetails_<?= $user["id"]; ?>' + versionNumber).text(parseInt($('#downVoteDetails_<?= $user["id"]; ?>' + versionNumber).text()) + 1);
+	}
+</script>
 
 </body>
 </html>
