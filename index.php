@@ -82,7 +82,7 @@
 
 				<!-- Each photo - for current person -->
 				<?php foreach($person['photos'] as $fileName => $photo) { ?>
-					<div class="container-fluid p-0" style="margin-top:200px;">
+					<div class="container-fluid" style="margin-top:200px;">
 						<?php include_partial('partials/_votingCard.php', array('fileName' => $fileName, 'voteDetails' => $photo['voteDetails'])); ?>
 					</div>
 				<?php } ?>
