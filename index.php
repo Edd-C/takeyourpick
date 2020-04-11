@@ -141,7 +141,7 @@
 	}
 
 	function updateVotes(fileName) {
-		console.log('Called: updateVotes');
+		//console.log('Called: updateVotes');
 
 		$.post({
 			url: "ajax/getAllVotes.php",
@@ -160,10 +160,10 @@
 					//console.log('USER/FIELD: ' + fields[j] + ' - ' + '<?= $user["id"]; ?>');
 
 					if(fileName == pictures[i].picture_name && fields[j] == '<?= $user["id"]; ?>') {
-						console.log('CONTINUE');
+						//console.log('CONTINUE');
 						continue;
 					}
-						console.log('DO IT');
+						//console.log('DO IT');
 						$('#upVoteDetails_' + pictures[i].picture_name + '_' + fields[j]).text(parseInt(pictures[i][fields[j]+'_UP']));
 						$('#downVoteDetails_' + pictures[i].picture_name + '_' + fields[j]).text(parseInt(pictures[i][fields[j]+'_DOWN']));
 
