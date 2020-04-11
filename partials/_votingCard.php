@@ -3,7 +3,7 @@
 	<!-- Picture -->
 	<div class="" style="margin:0 -15px 0 -15px; position: relative;">
 		<!-- Pic title -->
-		<p class="display-4 font-weight-bold" style="color: white; position: absolute; top: 10px; left: 20px; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;"> <?= $fileName; ?></p>
+		<p class="display-4 font-weight-bold px-3 py-2" style="background: rgba(0,0,0,0.7);color: white; position: absolute; top: 20px; left: 20px;"> <?= $fileName; ?></p>
 
 		<!-- Pic -->
 		<img src="images/<?= $fileName; ?>.jpg" style="width: 100%;" >
@@ -16,14 +16,14 @@
 		<!--<p class="font-weight-bold" style="font-size: 2.5em; color: white; position: absolute; bottom: 40px; left: 20px; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black; margin:0px;">
 			Rank: <span>1st</span></p>-->
 
-		<table style="font-size: 2.5em; color: white; position: absolute; bottom: 10px; left: 20px; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black; margin:0px;">
+		<table style="font-size: 2.5em; color: white; position: absolute; bottom: 20px; left: 20px; margin:0px; background: rgba(0,0,0,0.7);">
 			<tr>
-				<td styl>Rank: </td>
-				<td>1st</td>
+				<td class="px-3 pt-2">Rank: </td>
+				<td class="px-3 pt-2">1st</td>
 			</tr>
 			<tr>
-				<td>Net total: &nbsp;</td>
-				<td><span id="netTotal_<?= $fileName; ?>">0</span></td>
+				<td class="px-3 pb-2">Net total: &nbsp;</td>
+				<td class="px-3 pb-2"><span id="netTotal_<?= $fileName; ?>">0</span></td>
 			</tr>
 		</table>
 	</div>
