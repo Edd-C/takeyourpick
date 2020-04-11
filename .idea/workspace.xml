@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="123e6ed2-7d79-42cc-a654-07d821093cb4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +80,7 @@
       <workItem from="1585467979632" duration="6119000" />
       <workItem from="1585537047498" duration="2643000" />
       <workItem from="1585586729835" duration="12000" />
-      <workItem from="1586535400015" duration="37278000" />
+      <workItem from="1586535400015" duration="37573000" />
     </task>
     <servers />
   </component>
@@ -169,16 +168,5 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="564" y="222" width="792" height="596" key="find.popup/-1920.0.1536.832/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586636881109" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/index.php</url>
-          <line>83</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
