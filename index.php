@@ -79,16 +79,11 @@
 
 		<!-- Persons section -->
 		<?php foreach($people as $personInitial => $person) { ?>
-			<?php if($personInitial != 'CK') {
-				continue;
-			} ?>
-
 			<div class='row' style="padding-top:130px;">
 				<a name="<?= $personInitial; ?>"></a>
 
 				<!-- Each photo - for current person -->
 				<?php foreach($person['photos'] as $fileName => $photo) { ?>
-					<?php if($fileName != 'CK1') {continue;} ?>
 					<div class="container-fluid" style="margin-top:200px;">
 						<?php include_partial('partials/_votingCard.php', array('fileName' => $fileName, 'versionNumber' => $photo['versionNumber'], 'voteDetails' => $photo['voteDetails'])); ?>
 					</div>
@@ -107,11 +102,9 @@
 		//$('#netTotal_' + fileName).text(parseInt($('#netTotal_' + fileName).text()) + 1);
 
 		// Increment up vote
-		$('#upVoteDetails_CK1_CK').text(parseInt($('#upVoteDetails_CK1_CK').text()) + 1);
+		$('#upVoteDetails_' + fileName + '_' + '<?= $user["id"]; ?>').text(parseInt($('#upVoteDetails_' + fileName + '_' + '<?= $user["id"]; ?>').text()) + 1);
 
-		//$('#upVoteDetails_' + fileName + '_' + '<?= $user["id"]; ?>').text(parseInt($('#upVoteDetails_' + fileName + '_' + '<?= $user["id"]; ?>').text()) + 1);
-
-		//submitVoteToDB(fileName, 'up');
+		submitVoteToDB(fileName, 'up');
 
 		<?php } else { ?>
 			alert('You must be logged into vote. Use the link in the email you received, it has an embeded userId.');
