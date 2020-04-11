@@ -135,49 +135,53 @@
 	}
 
 	function submitVoteToDB(fileName, vote) {
-		$.post({
-			url: "ajax/vote.php",
-			data: {
-				userId: '<?= $user["id"]; ?>',
-				fileName: fileName,
-				vote: vote
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				updateVotes(fileName);
 			}
-		}).done(function() {
-			updateVotes(fileName);
+		};
+		xhttp.open("POST", "ajax/voye.php", true);
+		xhttp.send({
+			userId: '<?= $user["id"]; ?>',
+			fileName: fileName,
+			vote: vote
 		});
 	}
 
 	function updateVotes(fileName) {
 		//console.log('Called: updateVotes');
 
-		$.post({
-			url: "ajax/getAllVotes.php",
-		}).done(function(data) {
-			pictures = JSON.parse(data);
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				pictures = JSON.parse(this.responseText);
 
-			// Loop through each picture
-			for(var i = 0; i < pictures.length; i++) {
+				// Loop through each picture
+				for(var i = 0; i < pictures.length; i++) {
 
-				// Loop through each up/down vote counter
-				var fields = ['CK', 'TK', 'SL', 'KB'];
-				//var fields = ['CK'];
+					// Loop through each up/down vote counter
+					var fields = ['CK', 'TK', 'SL', 'KB'];
+					//var fields = ['CK'];
 
-				for(var j = 0; j < fields.length; j++) {
-					//console.log('Filename/picture_name: ' + fileName + ' - ' + pictures[i].picture_name);
-					//console.log('USER/FIELD: ' + fields[j] + ' - ' + '<?= $user["id"]; ?>');
+					for(var j = 0; j < fields.length; j++) {
+						//console.log('Filename/picture_name: ' + fileName + ' - ' + pictures[i].picture_name);
+						//console.log('USER/FIELD: ' + fields[j] + ' - ' + '<?= $user["id"]; ?>');
 
-					if(fileName == pictures[i].picture_name && fields[j] == '<?= $user["id"]; ?>') {
-						//console.log('CONTINUE');
-						continue;
-					}
+						if(fileName == pictures[i].picture_name && fields[j] == '<?= $user["id"]; ?>') {
+							//console.log('CONTINUE');
+							continue;
+						}
 						//console.log('DO IT');
 						$('#upVoteDetails_' + pictures[i].picture_name + '_' + fields[j]).text(parseInt(pictures[i][fields[j]+'_UP']));
 						$('#downVoteDetails_' + pictures[i].picture_name + '_' + fields[j]).text(parseInt(pictures[i][fields[j]+'_DOWN']));
 
+					}
 				}
 			}
-
-		});
+		};
+		xhttp.open("POST", "ajax/getAllVotes.php", true);
+		xhttp.send();
 	}
 
 	$( document ).ready(function() {
