@@ -179,7 +179,7 @@
 	}
 
 	$( document ).ready(function() {
-		setInterval(updateVotes, 500);
+		setInterval(updateVotes, 200);
 
 	});
 
