@@ -11,11 +11,11 @@
 		<table style="font-size: 2.5em; color: white; position: absolute; bottom: 20px; left: 20px; margin:0px; background: rgba(0,0,0,0.7);">
 			<tr>
 				<td class="px-3 pt-2">Rank: </td>
-				<td class="px-3 pt-2">1st</td>
+				<td class="px-3 pt-2"><span id="rank_<?= $fileName; ?>"></span></td>
 			</tr>
 			<tr>
 				<td class="px-3 pb-2">Net total: &nbsp;</td>
-				<td class="px-3 pb-2"><span id="netTotal_<?= $fileName; ?>">0</span></td>
+				<td class="px-3 pb-2" style="width:100px;"><span id="netTotal_<?= $fileName; ?>"></span></td>
 			</tr>
 		</table>
 	</div>
@@ -75,6 +75,3 @@
 		</button>
 	</div>
 </div>
-
-
-
