@@ -8,14 +8,6 @@
 		<!-- Pic -->
 		<img src="images/<?= $fileName; ?>.jpg" style="width: 100%;" >
 
-		<!-- Pic total -->
-		<!--<p class="font-weight-bold" style="font-size: 2.5em; color: white; position: absolute; bottom: 10px; left: 20px; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black; margin:0px;">
-			Net total: <span>0 </span></p>-->
-
-		<!-- Pic total -->
-		<!--<p class="font-weight-bold" style="font-size: 2.5em; color: white; position: absolute; bottom: 40px; left: 20px; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black; margin:0px;">
-			Rank: <span>1st</span></p>-->
-
 		<table style="font-size: 2.5em; color: white; position: absolute; bottom: 20px; left: 20px; margin:0px; background: rgba(0,0,0,0.7);">
 			<tr>
 				<td class="px-3 pt-2">Rank: </td>
@@ -82,16 +74,6 @@
 			</svg>
 		</button>
 	</div>
-
-
-
-	<!-- Total count -->
-	<!--<div class="row">
-		<div class="d-flex justify-content-between w-100">
-			<h1 class=""><span class="">Total: </span><span class="" id="number">55</span></h1>
-			<p class="mt-1" style="font-style: italic;"> Total = (all up votes - all down votes)</p>
-		</div>
-	</div>-->
 </div>
 
 

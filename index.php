@@ -50,20 +50,20 @@
 				'versionNumber' => $i,
 				'voteDetails' => array(
 					'CK' => array(
-						'up' => 0,
-						'down' => 0
+						'up' => '&nbsp;',
+						'down' => '&nbsp;'
 					),
 					'TK' => array(
-						'up' => 0,
-						'down' => 0
+						'up' => '&nbsp;',
+						'down' => '&nbsp;'
 					),
 					'SL' => array(
-						'up' => 0,
-						'down' => 0
+						'up' => '&nbsp;',
+						'down' => '&nbsp;'
 					),
 					'KB' => array(
-						'up' => 0,
-						'down' => 0
+						'up' => '&nbsp;',
+						'down' => '&nbsp;'
 					),
 				)
 			);
@@ -102,7 +102,7 @@
 		//$('#netTotal_' + fileName).text(parseInt($('#netTotal_' + fileName).text()) + 1);
 
 		// Increment up vote
-		$('#upVoteDetails_' + fileName + '_' + '<?= $user["id"]; ?>').text(parseInt($('#upVoteDetails_' + fileName + '_' + '<?= $user["id"]; ?>').text()) + 1);
+		//$('#upVoteDetails_' + fileName + '_' + '<?= $user["id"]; ?>').text(parseInt($('#upVoteDetails_' + fileName + '_' + '<?= $user["id"]; ?>').text()) + 1);
 
 		submitVoteToDB(fileName, 'up');
 
@@ -118,7 +118,7 @@
 		//$('#netTotal_' + fileName).text(parseInt($('#netTotal_' + fileName).text()) - 1);
 
 		// Increment down vote
-		$('#downVoteDetails_' + fileName + '_' + '<?= $user["id"]; ?>').text(parseInt($('#downVoteDetails_' + fileName + '_' + '<?= $user["id"]; ?>').text()) + 1);
+		//$('#downVoteDetails_' + fileName + '_' + '<?= $user["id"]; ?>').text(parseInt($('#downVoteDetails_' + fileName + '_' + '<?= $user["id"]; ?>').text()) + 1);
 
 		submitVoteToDB(fileName, 'down');
 		<?php } else { ?>
@@ -138,34 +138,39 @@
 		xhttp.send("userId=<?= $user['id']; ?>&vote="+vote+"&fileName=" + fileName);
 	}
 
-	function updateVotes(fileName) {
+	function updateVotes(fileName = '') {
+		console.log('updateVotes');
 		//console.log('Called: updateVotes');
 
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
-				pictures = JSON.parse(this.responseText);
+				var pictures = JSON.parse(this.responseText);
 
 				// Loop through each picture
-				for(var i = 0; i < pictures.length; i++) {
+				var netTotal, netTotalsArr = [], fields, j, i;
+				for(i = 0; i < pictures.length; i++) {
+					netTotal = 0;
 
 					// Loop through each up/down vote counter
-					var fields = ['CK', 'TK', 'SL', 'KB'];
-					//var fields = ['CK'];
+					fields = ['CK', 'TK', 'SL', 'KB'];
+					for(j = 0; j < fields.length; j++) {
+						netTotal += parseInt(pictures[i][fields[j]+'_UP']);
+						netTotal -= parseInt(pictures[i][fields[j]+'_DOWN']);
 
-					for(var j = 0; j < fields.length; j++) {
-						//console.log('Filename/picture_name: ' + fileName + ' - ' + pictures[i].picture_name);
-						//console.log('USER/FIELD: ' + fields[j] + ' - ' + '<?= $user["id"]; ?>');
-
+						// Due to lag in ajax response, skip updating the current pics votes table. We do this with jquery before the server response come back and just assume (currentVal = currentVal + 1). No jittery numbers this way.
 						if(fileName == pictures[i].picture_name && fields[j] == '<?= $user["id"]; ?>') {
-							//console.log('CONTINUE');
 							continue;
 						}
-						//console.log('DO IT');
+
 						$('#upVoteDetails_' + pictures[i].picture_name + '_' + fields[j]).text(parseInt(pictures[i][fields[j]+'_UP']));
 						$('#downVoteDetails_' + pictures[i].picture_name + '_' + fields[j]).text(parseInt(pictures[i][fields[j]+'_DOWN']));
-
 					}
+
+					//console.log(fileName);
+
+					$('#netTotal_' + pictures[i].picture_name).text(netTotal);
+					//console.log("Net total: " + netTotal);
 				}
 			}
 		};
@@ -174,7 +179,8 @@
 	}
 
 	$( document ).ready(function() {
-		updateVotes('');
+		setInterval(updateVotes, 500);
+
 	});
 
 </script>
