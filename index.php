@@ -120,7 +120,7 @@
 		// Increment down vote
 		$('#downVoteDetails_' + fileName + '_' + '<?= $user["id"]; ?>').text(parseInt($('#downVoteDetails_' + fileName + '_' + '<?= $user["id"]; ?>').text()) + 1);
 
-		//submitVoteToDB(fileName, 'down');
+		submitVoteToDB(fileName, 'down');
 		<?php } else { ?>
 			alert('You must be logged into vote. Use the link in the email you received, it has an embeded userId.');
 		<?php } ?>
@@ -133,12 +133,9 @@
 				updateVotes(fileName);
 			}
 		};
-		xhttp.open("POST", "ajax/voye.php", true);
-		xhttp.send({
-			userId: '<?= $user["id"]; ?>',
-			fileName: fileName,
-			vote: vote
-		});
+		xhttp.open("POST", "ajax/vote.php", true);
+		xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+		xhttp.send("userId=<?= $user['id']; ?>&vote="+vote+"&fileName=" + fileName);
 	}
 
 	function updateVotes(fileName) {
