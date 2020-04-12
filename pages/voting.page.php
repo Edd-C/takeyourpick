@@ -83,6 +83,58 @@ foreach($people as $personId => $person) {
 
 <script>
 
+	function getDevice() {
+		var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+		if (isMobile) {
+			//console.log('You are using Mobile');
+			return 'mobile';
+
+		} else {
+			//console.log('You are using Desktop');
+			return 'desktop';
+		}
+	}
+
+
+	function upVoteOnclick(fileName, versionNumber) {
+		var device = getDevice();
+
+		if(device === 'desktop') {
+			upVote(fileName, versionNumber);
+		} else {
+
+		}
+	}
+
+	function upVoteOntouch(fileName, versionNumber) {
+		var device = getDevice();
+
+		if(device === 'desktop') {
+
+		} else {
+			upVote(fileName, versionNumber);
+		}
+	}
+
+	function downVoteOnclick(fileName, versionNumber) {
+		var device = getDevice();
+
+		if(device === 'desktop') {
+			downVote(fileName, versionNumber);
+		} else {
+
+		}
+	}
+
+	function downVoteOntouch(fileName, versionNumber) {
+		var device = getDevice();
+
+		if(device === 'desktop') {
+
+		} else {
+			downVote(fileName, versionNumber);
+		}
+	}
 
 	function upVote(fileName, versionNumber) {
 		<?php if($user) { ?>
