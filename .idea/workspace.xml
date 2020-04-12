@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="123e6ed2-7d79-42cc-a654-07d821093cb4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/voting.page.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/voting.page.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/partials/_votingCard.php" beforeDir="false" afterPath="$PROJECT_DIR$/partials/_votingCard.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +82,7 @@
       <workItem from="1585467979632" duration="6119000" />
       <workItem from="1585537047498" duration="2643000" />
       <workItem from="1585586729835" duration="12000" />
-      <workItem from="1586535400015" duration="55420000" />
+      <workItem from="1586535400015" duration="56665000" />
     </task>
     <servers />
   </component>
@@ -170,5 +170,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="564" y="222" width="792" height="596" key="find.popup/-1920.0.1536.832/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586669686615" />
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1586671885951">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup/-1920.0.1536.832/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586671885951" />
   </component>
 </project>
