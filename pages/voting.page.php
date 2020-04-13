@@ -17,6 +17,7 @@
 				</a>
 			</button>
 		</div>
+		<div class="w-100 text-center text-white" style="font-size: 2em; background-color:#015866;">Votes refresh in <span id="time">9</span> seconds!</div>
 	</nav>
 <?php
 
@@ -63,7 +64,7 @@ foreach($people as $personId => $person) {
 ?>
 
 <!-- Main area -->
-	<div class="container-fluid">
+	<div class="container-fluid" style="">
 
 		<!-- Persons section -->
 		<?php foreach($people as $personId => $person) { ?>
@@ -100,7 +101,7 @@ foreach($people as $personId => $person) {
 		var device = getDevice();
 
 		if(device === 'desktop') {
-			upVote(fileName, versionNumber);
+			upVote(fileName, versionNumber, device);
 		} else {
 
 		}
@@ -112,7 +113,7 @@ foreach($people as $personId => $person) {
 		if(device === 'desktop') {
 
 		} else {
-			upVote(fileName, versionNumber);
+			upVote(fileName, versionNumber, device);
 		}
 	}
 
@@ -120,7 +121,7 @@ foreach($people as $personId => $person) {
 		var device = getDevice();
 
 		if(device === 'desktop') {
-			downVote(fileName, versionNumber);
+			downVote(fileName, versionNumber, device);
 		} else {
 
 		}
@@ -132,41 +133,68 @@ foreach($people as $personId => $person) {
 		if(device === 'desktop') {
 
 		} else {
-			downVote(fileName, versionNumber);
+			downVote(fileName, versionNumber, device);
 		}
 	}
 
-	function upVote(fileName, versionNumber) {
+	function upVote(fileName, versionNumber, device) {
 		<?php if($user) { ?>
-		submitVoteToDB(fileName, 'up');
+			addToVoteBuffer(fileName, versionNumber, 'UP', device);
+			//submitVoteToDB(fileName, 'up');
 		<?php } else { ?>
-		alert('You must be logged into vote. Use the link in the email you received, it has an embeded userId.');
+			alert('You must be logged into vote. Use the link in the email you received, it has an embeded userId.');
 		<?php } ?>
 
 	}
 
-	function downVote(fileName, versionNumber) {
+	function downVote(fileName, versionNumber, device) {
 		<?php if($user) { ?>
-		submitVoteToDB(fileName, 'down');
+			addToVoteBuffer(fileName, versionNumber, 'DOWN', device);
+			//submitVoteToDB(fileName, 'down');
 		<?php } else { ?>
-		alert('You must be logged into vote. Use the link in the email you received, it has an embeded userId.');
+			alert('You must be logged into vote. Use the link in the email you received, it has an embeded userId.');
 		<?php } ?>
 	}
 
-	function submitVoteToDB(fileName, vote) {
+	function addToVoteBuffer(fileName, versionNumber, vote, device) {
+		if(device == 'mobile') {
+			voteBuffer["<?= $user['id']; ?>"][fileName][vote] += 1;
+		} else { // desktop. Weight the vote amount less since people can use bots..
+			voteBuffer["<?= $user['id']; ?>"][fileName][vote] += 0.08;
+		}
+
+		//console.log(voteBuffer[personId][fileName][vote]);
+	}
+
+	/*function submitVoteToDB(fileName, vote) {
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
 				// TODO: Comment this out.
-				//updateVotes(fileName);
+				//updateVotesHtml(fileName);
 			}
 		};
-		xhttp.open("POST", "ajax/vote.php", true);
+		xhttp.open("POST", "ajax/voteReducedLoad.php", true);
 		xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 		xhttp.send("userId=<?= $user['id']; ?>&vote="+vote+"&fileName=" + fileName);
+	}*/
+
+	function submitVoteBufferToDatabase() {
+		var data = "data=" + JSON.stringify(resetVoteBuffer());
+
+		var xhttp = new XMLHttpRequest();
+		/*xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+			}
+		};*/
+		xhttp.open("POST", "ajax/recordAllBufferedVotes.php", true);
+		xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+		xhttp.send("userId=<?= $user['id']; ?>&" + data);
 	}
 
-	function updateVotes(fileName = '') {
+
+	function updateVotesHtml(fileName = '') {
+
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
@@ -211,7 +239,7 @@ foreach($people as $personId => $person) {
 				updateRanks(netTotals);
 			}
 		};
-		xhttp.open("POST", "ajax/getAllVotes.php", true);
+		xhttp.open("POST", "ajax/getAllVotesReducedLoad.php", true);
 		xhttp.send();
 	}
 
@@ -230,10 +258,37 @@ foreach($people as $personId => $person) {
 		updateRanksHtml(netTotals.KB.sort(compare));
 	}
 
-	$( document ).ready(function() {
-		updateVotes();
-		setInterval(updateVotes, 300);
+	function mainActions() {
+		submitVoteBufferToDatabase();
+		updateVotesHtml();
+		startTimer(13, document.querySelector('#time'));
+	}
 
+	function startTimer(duration, display) {
+		var timer = duration, minutes, seconds;
+		var intervalId = setInterval(function () {
+			minutes = parseInt(timer / 60, 10)
+			seconds = parseInt(timer % 60, 10);
+
+			minutes = minutes < 10 ? "0" + minutes : minutes;
+			//seconds = seconds < 10 ? "0" + seconds : seconds;
+
+			display.textContent = seconds;
+
+			if (--timer < 0) {
+				timer = duration;
+			}
+
+			if(seconds === 0) {
+				clearInterval(intervalId);
+			}
+		}, 1000);
+	}
+
+	$( document ).ready(function() {
+		updateVotesHtml();
+		setInterval(mainActions, 15000);
+		startTimer(13, document.querySelector('#time'));
 	});
 
 </script>
