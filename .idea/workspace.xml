@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="123e6ed2-7d79-42cc-a654-07d821093cb4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ajax/voteReducedLoad.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ajax/getAllVotes.php" beforeDir="false" afterPath="$PROJECT_DIR$/ajax/getAllVotesReducedLoad.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ajax/vote.php" beforeDir="false" afterPath="$PROJECT_DIR$/ajax/recordAllBufferedVotes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/voting.page.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/voting.page.php" afterDir="false" />
-    </list>
+    <list default="true" id="123e6ed2-7d79-42cc-a654-07d821093cb4" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,7 +85,7 @@
       <workItem from="1585537047498" duration="2643000" />
       <workItem from="1585586729835" duration="12000" />
       <workItem from="1586535400015" duration="69204000" />
-      <workItem from="1586748175661" duration="2035000" />
+      <workItem from="1586748175661" duration="2278000" />
     </task>
     <servers />
   </component>
